@@ -2,15 +2,19 @@
     //Make API call for "House" card
     //Diplay "House" card
 //User clicks "Draw Card" button
-const button = document.querySelector('button');
+const button = document.querySelector('button');//Grab the "Draw Card" button
+const playerOutput = document.querySelector('#playerOutput');//Grab the "Player" card output
     
-button.addEventListener('click', () => {//Create an event listener for the button
+button.addEventListener('click', async () => {//Create an event listener for the button
     //Make API call for "Player" card
-    
-    const playerOutput = document.querySelector('#playerOutput');//Grab the "Player" card output
-    console.log (playerOutput);
+    const playerCardDraw = await fetch(`https://www.deckofcardsapi.com/api/deck/new/draw/?count=1`);
+    const playerCardData = await playerCardDraw.json();
+    const playerCard = playerCardData.cards[0].value;
     //Display "Player" card
-    playerOutput.append('1');
+    const newCardObject = document.createElement('p');
+    newCardObject.textContent = playerCard.cards;
+    playerOutput.append(playerCard);
+    console.log (playerCard);
 
     //Compare "House" card vs. "player" card
     //Highest card value wins

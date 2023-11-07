@@ -20,16 +20,17 @@ button.addEventListener('click', async () => {//Create an event listener for the
     playerOutput.append(playerCardObject);
     console.log(playerCardObject);
 
+    //Display "House" card
     //Repeat steps for 'house' card
     //Make API call for 'House" card
     //Additional call not required; single call provides two cards
     //retrieve [1]
     const displayHouseCard = document.createElement('p');
-    displayHouseCard.textContent = "Hello";
+    displayHouseCard.textContent = cards[1].value + ` of ` + cards[1].suit;
     console.log(houseOutput);
     houseOutput.append(displayHouseCard);
 
-    //Display "House" card
+
 
 
 

@@ -12,13 +12,12 @@ button.addEventListener('click', async () => {//Create an event listener for the
     const playerCard = playerCardData.cards;
     //Display "Player" card
     const newCardObject = document.createElement('p');
-    newCardObject.textContent = playerCard.value;
-    playerOutput.append(playerCard);
+    newCardObject.textContent = playerCard[0].value + ` of ` + playerCard[0].suit;
+
+    playerOutput.append(newCardObject);
     console.log (playerCard);
 
     //Compare "House" card vs. "player" card
     //Highest card value wins
     //Display "[House/Player] wins!"
 })
-
-    

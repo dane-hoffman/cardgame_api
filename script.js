@@ -9,10 +9,10 @@ button.addEventListener('click', async () => {//Create an event listener for the
     //Make API call for "Player" card
     const playerCardDraw = await fetch(`https://www.deckofcardsapi.com/api/deck/new/draw/?count=1`);
     const playerCardData = await playerCardDraw.json();
-    const playerCard = playerCardData.cards[0].value;
+    const playerCard = playerCardData.cards;
     //Display "Player" card
     const newCardObject = document.createElement('p');
-    newCardObject.textContent = playerCard.cards;
+    newCardObject.textContent = playerCard.value;
     playerOutput.append(playerCard);
     console.log (playerCard);
 

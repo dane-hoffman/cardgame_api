@@ -18,7 +18,6 @@ button.addEventListener('click', async () => {//Create an event listener for the
     const playerCardObject = document.createElement('p');
     playerCardObject.textContent = cards[0].value + ` of ` + cards[0].suit;
     playerOutput.append(playerCardObject);
-    console.log(playerCardObject);
 
     //Display "House" card
     //Repeat steps for 'house' card
@@ -27,7 +26,7 @@ button.addEventListener('click', async () => {//Create an event listener for the
     //retrieve [1]
     const displayHouseCard = document.createElement('p');
     displayHouseCard.textContent = cards[1].value + ` of ` + cards[1].suit;
-    console.log(houseOutput);
+    houseOutput.innerHTML = '';
     houseOutput.append(displayHouseCard);
 
 

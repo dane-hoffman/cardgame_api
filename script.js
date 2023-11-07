@@ -3,6 +3,9 @@
 const button = document.querySelector('button');//Grab the "Draw Card" button
 const playerOutput = document.querySelector('#playerOutput');//Grab the "Player" card output
 const houseOutput = document.querySelector('#houseOutput');//Grab the houseOutput
+//Grab outcomeOutput
+const outcomeOutput = document.querySelector('#outcomeOutput');
+
     
 button.addEventListener('click', async () => {//Create an event listener for the button
     //Make API call for Two cards
@@ -24,9 +27,20 @@ button.addEventListener('click', async () => {//Create an event listener for the
     houseOutput.append(displayHouseCard);
 
     //Compare "House" card vs. "player" card
-    if (cards[0].value > cards[1].value) {
-        console.log("Player card wins!");
-    }
         //Highest card value wins
         //Display "[House/Player] wins!"
+    if (cards[0].value > cards[1].value) {//if player card is greater than house card
+        console.log("Player card wins!");//console log/display "Player Card Wins!"
+        outcomeMessage = "Player Card Wins!";
+    } else if(cards[1].value > cards[0].value) {//if house card is greater than player card
+        console.log("The  House ALWAYS Wins!");
+        outcomeMessage = "The House ALWAYS Wins!";
+    }
+    
+    //Display Outcome Message
+    const displayOutcome = document.createElement('h4');
+    displayOutcome.textContent = outcomeMessage;
+    outcomeOutput.innerHTML = '';
+    outcomeOutput.append(displayOutcome);
+
 });
